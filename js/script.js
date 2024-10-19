@@ -7,7 +7,7 @@ document.getElementById('submit').addEventListener('click', () => {
     };
 
  
-    fetch(`http://localhost:3000/login`, {
+    fetch(`https://server-produtos-0vas.onrender.com/login`, {
         method: 'POST',
         headers: {            
             'Content-Type': 'application/json',

@@ -12,16 +12,29 @@ body {
 
 header {
     display: flex;
+    justify-content: space-evenly;
+    background-image: url('/image/9824685.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    max-width: 100%;
 
+    
 }
 
 header, h1 {
-    font-size: 20px;
+    font-size: 24px;
     line-height: 1.6;
     color: #dddddd;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 1%;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 16%;
+}
+
+picture {
+    display: flex;
 }
 
 #container-box {
@@ -151,4 +164,27 @@ tbody tr:hover {
 
 .paragrafo-sucesso {
     font-weight: bold;
+}
+
+@media (max-width: 480px) {
+
+    header {
+        background-image: none;
+    }
+
+
+    h1 {
+
+        color: rgb(255, 255, 255, 5.9);
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(255, 0, 100, 0.7),
+        2px 2px 4px rgba(0, 0, 0, 0.6);
+        margin-top: 4%;
+        
+    }
+
+    #container-box {
+        margin-top: 50%;
+    }
+
 }
