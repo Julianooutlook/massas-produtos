@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    margin-bottom: 8%;
+    background-color: rgb(124, 13, 34, 0.9);
+}
+
+header {
+    display: flex;
+
+}
+
+header, h1 {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #dddddd;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1%;
+}
+
+#container-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    gap: 8px;
+}
+
+input {
+    display: flex;
+    width: 20vw;
+    height: 8vh;
+    font-size: 20px;
+}
+
+p {
+    display: flex;
+    font-size: 20px;
+}
+
+#container-resposta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+}
+
+#container-codigo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+    gap: 8px;
+}
+
+#submit {
+    width: 10vw;
+}
+
+button {
+    height: 10vh;  
+    border: transparent; 
+    border-radius: 4px; 
+    padding: 4px;
+    cursor: pointer;
+    overflow: hidden;
+    transition:  0.3 ease;
+}
+
+button:hover {
+    color: #dddddd;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: rgba(0, 0, 0, 100%);
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #dddddd;
+    justify-content: center;
+    align-items: center;
+}
+
+.observacao {
+    width: 50%;
+    margin-top: 2%;
+    font-weight: bold;
+    color:	rgb(250,128,114);
+
+}
+
+.lista {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#lista-geral {
+    word-break: break-all;
+    margin-left: 20%;
+}
+
+table {
+    width: 25%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    color:rgba(145, 256, 167, 0.5);
+
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(124, 136, 147, 0.5);
+}
+
+tbody tr:hover {
+    background-color: rgba(222, 111, 111, 0.5);
+
+   
+}
+
+.titulo-geral {
+    margin-top:6%;
+}
+
+.errosComuns {
+    font-weight: bold;
+}
+
+.spanSucesso {
+    color: rgba(0, 255, 13, 0.596);
+    font-weight: bold;
+
+}
+
+.paragrafo-sucesso {
+    font-weight: bold;
+}

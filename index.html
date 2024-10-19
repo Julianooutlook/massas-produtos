@@ -1,0 +1,278 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/js/script.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Bem vindo a api de armazenagem de massas alimenticias,
+            esta é uma breve documentação das funcionalidades, faça o login com os dados fornecidos para receber um codigo jwt fique a vontade para testar...
+        </h1>
+    </header>
+
+    <div id="container-box">
+        <input type="text" value="pastelDeFlango" name="text" id="username" placeholder="Username">
+        <input type="password" value="83nd756fh30ft4" name="password" id="password" placeholder="Password">
+        <button id="submit">Login</button>
+    </div>
+
+    <div id="container-resposta">
+        <p type="text" id="response" placeholder="Response" readonly></p>
+    </div>
+
+    <div id="container-codigo">
+        <textarea name="" id="codigoRecebido" rows="6" cols="40"></textarea>
+
+        <button id="botaoCopiar">Copiar Token</button>
+        <p id="codCopiado"></p>
+    </div>
+
+    <section>
+        <h2 class="titulo-geral"> Informações Gerais </h2>
+        <ul class="lista" id="lista-geral">
+            <li>Base URL: ""</li>
+            <li>Autenticação: JWT (JSON Web Token) Headers</li>
+            <li>Formato de Requisição: application/json</li>
+            <li>Formato de resposta: application/json</li>
+            <li>Todas as rotas requerem autenticação</li>
+            <li>O token tem uma expiração de 60 minutosa (após este periodo um novo token é requerido)</li>
+        </ul>
+
+        <h2 class="titulo-geral">Formas de testar no postman</h2>
+        <table>
+
+            <tr>
+                <th class="tableTH">Chave</th>
+                <th class="tableTH">Valor</th>
+            </tr>
+            <tr>
+                <td>x-token</td>
+                <td>token que foi copiado</td>
+            </tr>
+        </table>
+
+        <p class="observacao">Observação: Existe um limite de produtos que podem ser adicionados,
+            "pastel grande", "pastel pequeno", "pastel bananada", "nhoque", "talharim", "pizza", "rolo", "15 x 20",
+            "lasanha", "pastel degustação".
+        </p>
+
+        <h2 class="titulo-geral">O json ficará semelhante a tabela</h2>
+        <table>
+            <tr>
+                <td>nome</td>
+                <td>pastel grande</td>
+                <td>string</td>
+            </tr>
+            <tr>
+                <td>peso</td>
+                <td>0.500</td>
+                <td>Float</td>
+            </tr>
+            <tr>
+                <td>preço</td>
+                <td>7.50</td>
+                <td>Float</td>
+            </tr>
+            <tr>
+                <td>descrição</td>
+                <td>20 folhas</td>
+            </tr>
+        </table>
+        <p class="observacao">Observação: O campo descrição aceita este valor para o produtos folheados. Para pizza,
+            nhoque, talharim e rolo a descrição é a mesma do nome.
+
+        </p>
+        <table>
+            <tr>
+                <td>nome</td>
+                <td>pizza</td>
+            </tr>
+            <tr>
+                <td>peso</td>
+                <td>0.500</td>
+            </tr>
+            <tr>
+                <td>preço</td>
+                <td>7.50</td>
+            </tr>
+            <tr>
+                <td>descrição</td>
+                <td>pizza</td>
+            </tr>
+        </table>
+        <p class="observacao">Um id é gerado para cada novo produto adicionado.</p>
+
+        <h2 class="titulo-geral">Autenticação Login</h2>
+        <ul class="lista">
+            <li>Método: POST</li>
+            <li>Endpoint: /login</li>
+            <li>Função: <span id="geral-descrição">Autenticação para gerar o Token</span>
+            </li>
+        </ul>
+        <p class="paragrafo-sucesso">Resposta de sucesso (200):<span class="spanSucesso">Login realizado com
+                sucesso!</span></p>
+        <p class="errosComuns">Erros Comuns:</p>
+        <table>
+            <tr>
+                <td>401</td>
+                <td>Credenciais Inválidas</td>
+            </tr>
+            <tr>
+                <td>400</td>
+                <td>Dados da requisição incompletos</td>
+            </tr>
+        </table>
+
+        <h2 class="titulo-geral">Adicionar um produto </h2>
+        <ul class="lista">
+            <li>Método: POST</li>
+            <li>Endpoint: /produto</li>
+            <li>Função: Adiciona um produto ao estoque.</li>
+        </ul>
+        <p class="paragrafo-sucesso">Resposta de sucesso (200 OK)</p>
+
+        <p class="errosComuns">Erros Comuns:</p>
+        <table>
+            <tr>
+                <td>400</td>
+                <td>Token JWT ausente ou inválido</td>
+                <td>produto invalido ou já adicionado</td>
+            </tr>
+
+        </table>
+
+        <h2 class="titulo-geral">Obter Informações de um produto</h2>
+        <ul class="lista">
+            <li>Método: GET</li>
+            <li>Endpoint: /produtos/id</li>
+            <li>Função: Retorna um produto em estoque.</li>
+        </ul>
+        <p class="paragrafo-sucesso">Resposta de sucesso (200 OK):<span class="spanSucesso">Lista o produto em formato
+                json.</span></p>
+
+
+        <p class="errosComuns">Erros Comuns:</p>
+        <table>
+            <tr>
+                <td>401</td>
+                <td>Token JWT ausente ou inválido</td>
+            </tr>
+            <tr>
+                <td>400</td>
+                <td>Token JWT expirado ou sem permissão</td>
+            </tr>
+            <tr>
+                <td>404</td>
+                <td>Produto não encontrado</td>
+            </tr>
+        </table>
+
+
+        <h2 class="titulo-geral">Obter Informações dos Produtos</h2>
+        <ul class="lista">
+            <li>Método: GET</li>
+            <li>Endpoint: /produtos</li>
+            <li>Função: Retorna todos os produtos em estoque.</li>
+        </ul>
+        <p class="paragrafo-sucesso">Resposta de sucesso (200 OK):<span class="spanSucesso">Lista todos os produtos em
+                formato json.</span></p>
+
+
+        <p class="errosComuns">Erros Comuns:</p>
+        <table>
+            <tr>
+                <td>401</td>
+                <td>Token JWT ausente ou inválido</td>
+            </tr>
+            <tr>
+                <td>400</td>
+                <td>Token JWT expirado ou sem permissão</td>
+            </tr>
+        </table>
+
+        <h2 class="titulo-geral">Obter Informações de um produto</h2>
+        <ul class="lista">
+            <li>Método: GET</li>
+            <li>Endpoint: /produtos/id</li>
+            <li>Função: Retorna um produto em estoque.</li>
+        </ul>
+        <p class="paragrafo-sucesso">Resposta de sucesso (200 OK):<span class="spanSucesso">Lista o produto em formato
+                json.</span></p>
+
+
+        <p class="errosComuns">Erros Comuns:</p>
+        <table>
+            <tr>
+                <td>401</td>
+                <td>Token JWT ausente ou inválido</td>
+            </tr>
+            <tr>
+                <td>400</td>
+                <td>Token JWT expirado ou sem permissão</td>
+            </tr>
+            <tr>
+                <td>404</td>
+                <td>Produto não encontrado</td>
+            </tr>
+        </table>
+
+        <h2 class="titulo-geral">Atuallizar Informaçoes do produto</h2>
+        <ul class="lista">
+            <li>Método: PUT</li>
+            <li>Endpoint: /produtos/id</li>
+            <li>Função: Atualiza as informações.</li>
+        </ul>
+        <p class="paragrafo-sucesso">Resposta de sucesso (200 OK):<span class="spanSucesso">Produto atualizado.</span>
+        </p>
+
+        <p class="errosComuns">Erros Comuns:</p>
+        <table>
+            <tr>
+                <td>401</td>
+                <td>Token JWT ausente ou inválido</td>
+            </tr>
+            <tr>
+                <td>400</td>
+                <td>Token JWT expirado ou sem permissão</td>
+            </tr>
+            <tr>
+                <td>404</td>
+                <td>Produto não encontrado</td>
+            </tr>
+        </table>
+
+        <h2 class="titulo-geral">Deletar produto</h2>
+        <ul class="lista">
+            <li>Método: DELETE</li>
+            <li>Endpoint: /produtos/id</li>
+            <li>Função: Deleta produto do estoque.</li>
+        </ul>
+        <p class="paragrafo-sucesso">Resposta de sucesso (200 OK):<span class="spanSucesso">Produto excluido com
+                sucesso.</span></p>
+
+        <p class="errosComuns">Erros Comuns:</p>
+        <table>
+            <tr>
+                <td>401</td>
+                <td>Token JWT ausente ou inválido</td>
+            </tr>
+            <tr>
+                <td>400</td>
+                <td>Token JWT expirado ou sem permissão</td>
+            </tr>
+            <tr>
+                <td>404</td>
+                <td>Produto não encontrado</td>
+            </tr>
+        </table>
+    </section>
+
+</body>
+
+</html>
