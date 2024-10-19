@@ -13,7 +13,7 @@ body {
 header {
     display: flex;
     justify-content: space-evenly;
-    background-image: url('../image/9824685.jpg');
+    background-image: url('image/9824685.jpg');
     background-size: cover;
     background-position: center;
     height: 200px;
