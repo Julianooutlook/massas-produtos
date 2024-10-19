@@ -7,7 +7,7 @@ document.getElementById('submit').addEventListener('click', () => {
     };
 
  
-    fetch(`http://localhost:3000/login`, {
+    fetch(`https://api-produtos-sage.vercel.app/`, {
         method: 'POST',
         headers: {            
             'Content-Type': 'application/json',
