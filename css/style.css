@@ -67,6 +67,12 @@ p {
     justify-content: center;
     align-items: center;
     margin-top: 1%;
+    color: rgba(0, 255, 13, 0.596);
+}
+
+#codCopiado {
+    color: rgba(0, 255, 13, 0.596);
+
 }
 
 #container-codigo {
@@ -195,3 +201,4 @@ tbody tr:hover {
     }
 
 }
+
