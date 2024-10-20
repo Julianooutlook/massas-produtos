@@ -6,8 +6,8 @@
 }
 
 body {
-    margin-bottom: 8%;
-    background-color: rgba(15, 0, 99, 0.863);
+    margin-bottom: 6%;
+    background: linear-gradient(to top, #0b1215, #020D19);
 }
 
 picture {
@@ -19,6 +19,7 @@ picture {
 img {
     width: 25%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: grayscale(100%);
 }
 
 header {
@@ -136,6 +137,7 @@ th, td {
     border: 1px solid #ddd;
     text-align: left;
     font-weight: bold;
+    color: rgb(255, 255, 255);
 }
 
 th {
@@ -182,7 +184,7 @@ tbody tr:hover {
 
         color: rgb(255, 255, 255, 5.9);
         font-weight: bold;
-        text-shadow: 2px 2px 4px rgba(255, 0, 100, 0.7),
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7),
         2px 2px 4px rgba(0, 0, 0, 0.6);
         margin-top: 4%;
         
