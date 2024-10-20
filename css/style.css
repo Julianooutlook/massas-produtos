@@ -13,13 +13,14 @@ body {
 picture {
     display: flex;
     align-items: center;
-    
+    height: 10%;
 }
 
 img {
     width: 25%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     filter: grayscale(100%);
+    
 }
 
 header {
